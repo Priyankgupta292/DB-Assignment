@@ -15,8 +15,7 @@ In summary, the relationship between "Product" and "Category" entities is a one-
 
 With the following way we can make sure that each Product in Product schema has a valid category assigned to it
 
-`code`
-const ProductSchema = new mongoose.Schema({
+`const ProductSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -38,8 +37,9 @@ ProductSchema.path('category_id').validate(async function(value) {
 }, 'Invalid category');
 
 // Example usage: Query products and populate the category
-const products = await Product.find().populate('category_id');
-`code`
+const products = await Product.find().populate('category_id');`
+
+
 
 
 
