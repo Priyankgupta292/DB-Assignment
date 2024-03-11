@@ -6,16 +6,17 @@
 
 3. With this setup, we can perform operations like fetching all products belonging to a specific category or retrieving the category information for a particular product by populating the category_id field when querying the "Product" collection.
 
---- 
 
 In summary, the relationship between "Product" and "Category" entities is a one-to-many relationship, where each product belongs to one category, and each category can have multiple products associated with it.
 
+--- 
 
 # Answer2
 
 With the following way we can make sure that each Product in Product schema has a valid category assigned to it
 
-`const ProductSchema = new mongoose.Schema({
+```javascript
+const ProductSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -37,8 +38,9 @@ ProductSchema.path('category_id').validate(async function(value) {
 }, 'Invalid category');
 
 // Example usage: Query products and populate the category
-const products = await Product.find().populate('category_id');`
+const products = await Product.find().populate('category_id');
 
+```
 
 
 
